@@ -77,7 +77,7 @@ int db_create_table(const char *table)
 	snprintf(sql, sizeof(sql), CREATE_TABL_SCHEMA_FMT, table);
 
 	/* Execute SQL statement */
-	rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+	rc = sqlite3_exec(db, sql, callback, NULL, &zErrMsg);
 	if( rc != SQLITE_OK ){
 		fprintf(stderr, "SQL error: %s\n", zErrMsg);
 		sqlite3_free(zErrMsg);
